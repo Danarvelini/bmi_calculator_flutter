@@ -13,23 +13,13 @@ class InputPage extends StatefulWidget {
   _InputPageState createState() => _InputPageState();
 }
 
-class _InputPageState extends State<InputPage> {
-  Color femaleCardColor = inactiveColorCard;
-  Color maleCardColor = inactiveColorCard;
+enum Gender {
+  female,
+  male,
+}
 
-  void updateColor(int gender) {
-    if (gender == 1) {
-      if (maleCardColor == inactiveColorCard) {
-        maleCardColor = activeColorCard;
-        femaleCardColor = inactiveColorCard;
-      }
-    } else if (gender == 2) {
-      if (femaleCardColor == inactiveColorCard) {
-        femaleCardColor = activeColorCard;
-        maleCardColor = inactiveColorCard;
-      }
-    }
-  }
+class _InputPageState extends State<InputPage> {
+  Gender selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +36,13 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateColor(1);
+                        selectedGender = Gender.male;
                       });
                     },
                     child: ReusableWidget(
-                      color: maleCardColor,
+                      color: selectedGender == Gender.male
+                          ? activeColorCard
+                          : inactiveColorCard,
                       childCard: ColumnCardContent(
                           finalIcon: FontAwesomeIcons.mars, finalText: 'Male'),
                     ),
@@ -60,11 +52,13 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateColor(2);
+                        selectedGender = Gender.female;
                       });
                     },
                     child: ReusableWidget(
-                      color: femaleCardColor,
+                      color: selectedGender == Gender.female
+                          ? activeColorCard
+                          : inactiveColorCard,
                       childCard: ColumnCardContent(
                           finalIcon: FontAwesomeIcons.venus,
                           finalText: 'Female'),
