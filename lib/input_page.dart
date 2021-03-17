@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'column_card_content.dart';
 import 'reusable_card.dart';
-
-const double bottomContainerHeight = 80;
-const activeColorCard = Color(0xFF1D1E33);
-const inactiveColorCard = Color(0xFF111328);
-const colorBaseContainer = Color(0xFFEB1555);
+import 'constants.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -40,8 +36,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     color: selectedGender == Gender.male
-                        ? activeColorCard
-                        : inactiveColorCard,
+                        ? kActiveColorCard
+                        : kInactiveColorCard,
                     childCard: ColumnCardContent(
                         finalIcon: FontAwesomeIcons.mars, finalText: 'Male'),
                   ),
@@ -54,8 +50,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     color: selectedGender == Gender.female
-                        ? activeColorCard
-                        : inactiveColorCard,
+                        ? kActiveColorCard
+                        : kInactiveColorCard,
                     childCard: ColumnCardContent(
                         finalIcon: FontAwesomeIcons.venus, finalText: 'Female'),
                   ),
@@ -64,26 +60,26 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Expanded(
-            child: ReusableWidget(color: activeColorCard),
+            child: ReusableWidget(color: kActiveColorCard),
           ),
           Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReusableWidget(color: activeColorCard),
+                  child: ReusableWidget(color: kActiveColorCard),
                 ),
                 Expanded(
-                  child: ReusableWidget(color: activeColorCard),
+                  child: ReusableWidget(color: kActiveColorCard),
                 ),
               ],
             ),
           ),
           Container(
-            color: colorBaseContainer,
+            color: kColorBaseContainer,
             margin: EdgeInsets.only(
               top: 20,
             ),
-            height: bottomContainerHeight,
+            height: kBottomContainerHeight,
             width: double.infinity,
           )
         ],

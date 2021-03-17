@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-
-const textStyle = TextStyle(
-  fontSize: 18,
-  color: Color(0xFF8D8E98),
-);
+import 'constants.dart';
 
 class ColumnCardContent extends StatelessWidget {
   ColumnCardContent({@required this.finalIcon, @required this.finalText});
@@ -18,7 +14,7 @@ class ColumnCardContent extends StatelessWidget {
         SizedBox(height: 15),
         Text(
           finalText,
-          style: textStyle,
+          style: kTextStyle,
         ),
       ],
     );
