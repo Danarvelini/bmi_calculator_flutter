@@ -33,36 +33,31 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReusableWidget(
+                    onPress: () {
                       setState(() {
                         selectedGender = Gender.male;
                       });
                     },
-                    child: ReusableWidget(
-                      color: selectedGender == Gender.male
-                          ? activeColorCard
-                          : inactiveColorCard,
-                      childCard: ColumnCardContent(
-                          finalIcon: FontAwesomeIcons.mars, finalText: 'Male'),
-                    ),
+                    color: selectedGender == Gender.male
+                        ? activeColorCard
+                        : inactiveColorCard,
+                    childCard: ColumnCardContent(
+                        finalIcon: FontAwesomeIcons.mars, finalText: 'Male'),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReusableWidget(
+                    onPress: () {
                       setState(() {
                         selectedGender = Gender.female;
                       });
                     },
-                    child: ReusableWidget(
-                      color: selectedGender == Gender.female
-                          ? activeColorCard
-                          : inactiveColorCard,
-                      childCard: ColumnCardContent(
-                          finalIcon: FontAwesomeIcons.venus,
-                          finalText: 'Female'),
-                    ),
+                    color: selectedGender == Gender.female
+                        ? activeColorCard
+                        : inactiveColorCard,
+                    childCard: ColumnCardContent(
+                        finalIcon: FontAwesomeIcons.venus, finalText: 'Female'),
                   ),
                 ),
               ],
