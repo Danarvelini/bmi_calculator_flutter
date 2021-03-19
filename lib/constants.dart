@@ -10,4 +10,7 @@ const kTextStyle = TextStyle(
   color: Color(0xFF8D8E98),
 );
 
-const kTextBold = TextStyle(fontSize: 50, fontWeight: FontWeight.w900);
+const kTextBold = TextStyle(
+  fontSize: 50,
+  fontWeight: FontWeight.w900,
+);

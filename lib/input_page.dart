@@ -16,6 +16,7 @@ enum Gender {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
+  int height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -64,16 +65,33 @@ class _InputPageState extends State<InputPage> {
             child: ReusableWidget(
               color: kActiveColorCard,
               childCard: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text('Text', style: kTextStyle),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
                     children: [
                       Text(
-                        'cm',
+                        height.toString(),
                         style: kTextBold,
                       ),
+                      Text(
+                        'cm',
+                        style: kTextStyle,
+                      )
                     ],
-                  )
+                  ),
+                  Slider(
+                      value: height.toDouble(),
+                      min: 0,
+                      max: 200,
+                      onChanged: (newHeight) {
+                        setState(() {
+                          height = newHeight.toInt();
+                        });
+                      }),
                 ],
               ),
             ),
