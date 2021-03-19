@@ -85,8 +85,10 @@ class _InputPageState extends State<InputPage> {
                   ),
                   Slider(
                       value: height.toDouble(),
-                      min: 0,
-                      max: 200,
+                      min: 120,
+                      max: 250,
+                      activeColor: kColorBaseContainer,
+                      inactiveColor: kInactiveColorCard,
                       onChanged: (newHeight) {
                         setState(() {
                           height = newHeight.toInt();
