@@ -85,14 +85,16 @@ class _InputPageState extends State<InputPage> {
                   ),
                   SliderTheme(
                     data: SliderTheme.of(context).copyWith(
-                      thumbColor: Colors.green,
+                      thumbColor: Color(0xFFEB1555),
+                      activeTrackColor: Colors.white,
+                      inactiveTrackColor: Color(0xFF8D8E98),
+                      overlayColor: Color(0x29EB1555),
+                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 13),
                     ),
                     child: Slider(
                         value: height.toDouble(),
                         min: 120,
                         max: 250,
-                        activeColor: kColorBaseContainer,
-                        inactiveColor: kInactiveColorCard,
                         onChanged: (newHeight) {
                           setState(() {
                             height = newHeight.toInt();
